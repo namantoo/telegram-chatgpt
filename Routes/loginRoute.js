@@ -15,7 +15,7 @@ router.post("/", async (req, res)=>{
         console.log(email, password)
         if(email === "pd@c3links.org" && password === "pd@12345"){
                 const token =  jwt.sign({ email: email, password: password }, "thisisaproductionbuildapiforourstartup", {
-                expiresIn: "5 seconds" 
+                expiresIn: "24h" 
                 });
                 console.log(token)
                 const userVer = jwt.verify(token, "thisisaproductionbuildapiforourstartup")

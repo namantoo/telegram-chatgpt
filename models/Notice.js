@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 
 
 const  noticeSchema = new mongoose.Schema({
-   
+     
    date_time: Date,
    public_notification: String
 

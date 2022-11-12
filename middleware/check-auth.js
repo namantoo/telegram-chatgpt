@@ -4,9 +4,18 @@ const jwt = require('jsonwebtoken');
 // reminder: make this async await 
 module.exports = (req, res, next) => {
     // const token = req.headers.authorization
-   
-    const token = req.headers.authorization
-    console.log(token)
+    try{
+        const token = req.headers.authorization.split(" ")[1];
+        // console.log(token);
+        const verify = jwt.verify(token, 'thisisaproductionbuildapiforourstartup')
+       
+        next()
+    }
+    catch(error){
+        res.status(401).json({
+            msg: "invalid token"
+        })
+    }
     // const verify =  jwt.verify(token, 'mynameuisnandnuewfiurnwifnrenurieriieru');
  
 }
