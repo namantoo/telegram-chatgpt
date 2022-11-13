@@ -5,10 +5,7 @@ const mongoose = require('mongoose')
 const PrivateNotice = require("../models/PrivateNotice")
 const checkAuth = require("../middleware/check-auth")
 router.get("/", checkAuth, (req, res, next) =>{
-    // console.log(req.params.id)
-    // PrivateNotice.find(({metamask_address: req.params.id}), function(err, val){
-    //     res.send(val);
-    // })
+  
     console.log(req.query.metamask_address)
      PrivateNotice.find(({metamask_address: req.query.metamask_address}), function(err, val){
         res.send(val);
