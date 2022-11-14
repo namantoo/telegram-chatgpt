@@ -4,7 +4,7 @@ require("../db/conn")
 const mongoose = require('mongoose')
 const Notice = require("../models/Notice")
 const checkAuth = require("../middleware/check-auth")
-router.get("/", (req, res, next) =>{
+router.get("/", checkAuth, (req, res, next) =>{
    Notice.find()
    .then(result =>{
     res.status(200).json({
