@@ -2,13 +2,13 @@ const express = require('express');
 const router = express.Router();
 require("../db/conn")
 const mongoose = require('mongoose')
-const Withdraw = require("../models/Withdraw")
+const Accounts = require("../models/Profile")
 const checkAuth = require("../middleware/check-auth")
 router.get("/",checkAuth, (req, res, next) =>{
-    Withdraw.find()
+    Accounts.find()
     .then(result =>{
      res.status(200).json({
-         withdrawal_address: result
+         Notifications: result
      });
     })
     .catch(err => {

@@ -3,8 +3,8 @@ const mongoose = require("mongoose")
 
 const  withdrawSchema = new mongoose.Schema({
 
-    metamask_address: String
-  
+    metamask_address: String,
+    status: String
      
 },{ collection: 'WITHDRAW_REQUESTS',
 versionKey: false //here
