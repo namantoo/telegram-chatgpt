@@ -11,3 +11,4 @@ const  privateNoticeSchema = new mongoose.Schema({
 versionKey: false //here
 })
 module.exports =  mongoose.model('PRIVATE_NOTIFICATIONS', privateNoticeSchema) ;
+

@@ -9,3 +9,4 @@ versionKey: false //here
 })
 
 module.exports =  mongoose.model('CRYPTO_NEWS', newsSchema) ;
+
