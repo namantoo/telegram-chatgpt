@@ -1,5 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+var multer = require('multer');
+var upload = multer();
 const request = require("request");
 require("./db/conn")
 const noticeRoute = require('./Routes/noticeRoute')
@@ -23,6 +25,7 @@ const checkAuth = require("./middleware/check-auth")
 app.use(express.json());
 // app.use(formidable());
 app.use(bodyParser.json());       // to support JSON-encoded bodies
+app.use(upload.array())
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
     extended: true
 }));
@@ -36,12 +39,15 @@ app.use('/v1/closed_withdraw', closedRoute )
 app.use('/v1/transactions', transactionsRoute )
 app.use('/v1/dashboard', dashboardRoute )
 app.use('/v1/all_withdraw_requests', withdrawRoute )
+
 app.use('/v1/createnews', createNewsRoute )
 app.use('/v1/getnews', createNewsRoute )
 app.use('/v1/auth/login', loginRoute )
 app.use('/v1/createmessage/private', privateNotice )
 app.use('/v1/private_notifications', privateNotice )
 app.use('/v1/rmlist', rmListRoute )
+app.use('/v1/updateuser', profileRoute )
+app.use('/v1/update_withdraw', withdrawRoute )
 app.use('/v1/accounts_list', accountsRoute )
 app.get("/", checkAuth, function(req, res){
     res.send( "working");

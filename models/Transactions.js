@@ -2,10 +2,7 @@ const mongoose = require("mongoose")
 
 
 const  transactionsSchema = new mongoose.Schema({
-
     metamask_address: String
-  
-     
 },{ collection: 'PRINCIPAL_MASTER',
 versionKey: false //here
 })

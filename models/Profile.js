@@ -3,8 +3,10 @@ const mongoose = require("mongoose")
 
 const  profileSchema = new mongoose.Schema({
 
-    metamask_address: String
-  
+    metamask_address: String,
+    rm: String,
+    apy: Number,
+    status: String
      
 },{ collection: 'USER_PROFILES',
 versionKey: false //here
