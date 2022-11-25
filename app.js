@@ -35,11 +35,9 @@ app.use('/v1/public_notifications', noticeRoute )
 app.use('/v1/user_profile', profileRoute )
 app.use('/v1/open_withdraw', openRoute )
 app.use('/v1/closed_withdraw', closedRoute )
-
 app.use('/v1/transactions', transactionsRoute )
 app.use('/v1/dashboard', dashboardRoute )
 app.use('/v1/all_withdraw_requests', withdrawRoute )
-
 app.use('/v1/createnews', createNewsRoute )
 app.use('/v1/getnews', createNewsRoute )
 app.use('/v1/auth/login', loginRoute )
@@ -56,14 +54,3 @@ app.get("/", checkAuth, function(req, res){
 app.listen(3006, () => {
     console.log(`server is running`)
 });
-
-
-
-
-
-
-
-
-
-
-
