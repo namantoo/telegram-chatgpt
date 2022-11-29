@@ -4,7 +4,7 @@ require("../db/conn")
 const mongoose = require('mongoose')
 const Dashboard = require("../models/Dashboard")
 const checkAuth = require("../middleware/check-auth")
-//routing
+
 router.get("/",checkAuth, (req, res, next) =>{
     Dashboard.find()
     .then(result =>{
