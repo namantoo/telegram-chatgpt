@@ -4,19 +4,13 @@ var multer = require('multer');
 var upload = multer();
 const request = require("request");
 require("./db/conn")
-const noticeRoute = require('./Routes/noticeRoute')
+
+
 const loginRoute = require('./Routes/loginRoute')
-const createNewsRoute =  require('./Routes/createNewsRoute')
-const privateNotice =  require('./Routes/privateNoticeRoute')
-const rmListRoute =  require('./Routes/rmListRoute')
-const profileRoute = require('./Routes/profileRoute')
-const transactionsRoute = require('./Routes/transactionRoute')
-const dashboardRoute = require('./Routes/getDashboardRoute')
-const withdrawRoute = require('./Routes/allWithdrawRoute')
-const openRoute = require('./Routes/openWIthdrawRoute')
-const closedRoute = require('./Routes/closedWithdrawRoute')
-const accountsRoute = require('./Routes/getAccountsListRoute')
-const Notice = require("./models/Notice")
+const registrationRoute = require('./Routes/registrationRoute')
+const resetRoute = require('./Routes/resetPasswordRoute')
+const TelegramBot = require('./Routes/TelegramRoute')
+
 const formidable = require('express-formidable');
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
@@ -29,28 +23,41 @@ app.use(upload.array())
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
     extended: true
 }));
+
+
 //ALL ROUTERS CONNECT
-app.use('/v1/createmessage/public', noticeRoute )
-app.use('/v1/public_notifications', noticeRoute )
-app.use('/v1/user_profile', profileRoute )
-app.use('/v1/open_withdraw', openRoute )
-app.use('/v1/closed_withdraw', closedRoute )
-app.use('/v1/transactions', transactionsRoute )
-app.use('/v1/dashboard', dashboardRoute )
-app.use('/v1/all_withdraw_requests', withdrawRoute )
-app.use('/v1/createnews', createNewsRoute )
-app.use('/v1/getnews', createNewsRoute )
+
+
+
 app.use('/v1/auth/login', loginRoute )
-app.use('/v1/createmessage/private', privateNotice )
-app.use('/v1/private_notifications', privateNotice )
-app.use('/v1/rmlist', rmListRoute )
-app.use('/v1/updateuser', profileRoute )
-app.use('/v1/update_withdraw', withdrawRoute )
-app.use('/v1/accounts_list', accountsRoute )
+// app.use('/v1/auth/registration', registrationRoute )
+app.use('/v1/auth', resetRoute )
+// app.use('/v1/chatgpt', TelegramBot )
+
+
+// API to send OTP to Telegram
+const sendOTPTelegram = async (otp) => {
+    const message = `Your OTP is ${otp}`;
+    const telegramApiUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${message}`;
+    try {
+      await axios.post(telegramApiUrl);
+      console.log('OTP sent to Telegram');
+    } catch (error) {
+      console.error('Error sending OTP to Telegram:', error);
+    }
+  };
+
+
+// Generate a random OTP
+const generateOTP = () => {
+    return Math.floor(100000 + Math.random() * 900000);
+  };
+
+
 app.get("/", checkAuth, function(req, res){
     res.send( "working");
 });
  // PORT
-app.listen(3006, () => {
+app.listen(3005, () => {
     console.log(`server is running`)
 });
