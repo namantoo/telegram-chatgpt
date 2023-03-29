@@ -12,7 +12,7 @@ const TELEGRAM_CHAT_ID = '1752138028';
 
 const bot = new TelegramBot(TELEGRAM_BOT_TOKEN, { polling: true });
 
-const OPENAI_API_KEY = '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';
+const OPENAI_API_KEY = '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';
 const { Configuration, OpenAIApi } =  require('openai');
 const configuration = new Configuration({
     apiKey: OPENAI_API_KEY,
