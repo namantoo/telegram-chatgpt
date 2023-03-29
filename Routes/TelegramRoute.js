@@ -2,17 +2,19 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 require("../db/conn")
+require('dotenv').config()
 const jwt = require("jsonwebtoken");
 const mongoose = require('mongoose')
 
 const TelegramBot = require('node-telegram-bot-api');
 // const openai = require('openai');
-const TELEGRAM_BOT_TOKEN = '6068872593:AAG-cRf8HVVAUq3RK0V5gbBOQhWSF5acCBA';
+const TELEGRAM_BOT_TOKEN = process.env.API_TELEGRAM;
 const TELEGRAM_CHAT_ID = '1752138028';
 
 const bot = new TelegramBot(TELEGRAM_BOT_TOKEN, { polling: true });
 
-const OPENAI_API_KEY = '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';
+const OPENAI_API_KEY = process.env.API_OPENAI;
+console.log(OPENAI_API_KEY)
 const { Configuration, OpenAIApi } =  require('openai');
 const configuration = new Configuration({
     apiKey: OPENAI_API_KEY,

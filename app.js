@@ -4,7 +4,7 @@ var multer = require('multer');
 var upload = multer();
 const request = require("request");
 require("./db/conn")
-
+require('dotenv').config()
 
 const loginRoute = require('./Routes/loginRoute')
 const registrationRoute = require('./Routes/registrationRoute')
@@ -58,6 +58,6 @@ app.get("/", checkAuth, function(req, res){
     res.send( "working");
 });
  // PORT
-app.listen(3005, () => {
+app.listen(3008, () => {
     console.log(`server is running`)
 });
