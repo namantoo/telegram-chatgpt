@@ -9,6 +9,7 @@ const mongoose = require('mongoose')
 const TelegramBot = require('node-telegram-bot-api');
 // const openai = require('openai');
 const TELEGRAM_BOT_TOKEN = process.env.API_TELEGRAM;
+console.log(TELEGRAM_BOT_TOKEN)
 const TELEGRAM_CHAT_ID = '1752138028';
 
 const bot = new TelegramBot(TELEGRAM_BOT_TOKEN, { polling: true });

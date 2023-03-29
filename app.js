@@ -58,6 +58,6 @@ app.get("/", checkAuth, function(req, res){
     res.send( "working");
 });
  // PORT
-app.listen(3008, () => {
+app.listen(3003, () => {
     console.log(`server is running`)
 });
