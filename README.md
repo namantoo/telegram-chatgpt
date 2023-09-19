@@ -36,6 +36,7 @@ This project provides a seamless integration of a Telegram chatbot with OpenAI's
 ```bash
 node app.js
 
+
 5. Your Telegram bot is now running and integrated with OpenAI! Start a conversation with your bot on Telegram.
 
 ## Usage
