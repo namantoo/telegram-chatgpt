@@ -17,7 +17,6 @@ This project provides a seamless integration of a Telegram chatbot with OpenAI's
 - OpenAI API Key
 
 ## Setup & Installation
-
 1. Clone the repository:
    ```bash
    git clone <repository-url>
@@ -29,13 +28,12 @@ This project provides a seamless integration of a Telegram chatbot with OpenAI's
 
 3. Create a .env file in the root directory and add the following:
    ```bash
-   TELEGRAM_BOT_TOKEN=YOUR_TELEGRAM_BOT_TOKEN
-    OPENAI_API_KEY=YOUR_OPENAI_API_KEY
+         TELEGRAM_BOT_TOKEN=YOUR_TELEGRAM_BOT_TOKEN
+    O      PENAI_API_KEY=YOUR_OPENAI_API_KEY
 
 4. Start the server:
-```bash
-node app.js
-
+   ```bash
+      node app.js
 
 5. Your Telegram bot is now running and integrated with OpenAI! Start a conversation with your bot on Telegram.
 
