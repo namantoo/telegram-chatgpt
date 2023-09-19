@@ -29,7 +29,7 @@ This project provides a seamless integration of a Telegram chatbot with OpenAI's
 3. Create a .env file in the root directory and add the following:
    ```bash
          TELEGRAM_BOT_TOKEN=YOUR_TELEGRAM_BOT_TOKEN
-    O      PENAI_API_KEY=YOUR_OPENAI_API_KEY
+       OPENAI_API_KEY=YOUR_OPENAI_API_KEY
 
 4. Start the server:
    ```bash
